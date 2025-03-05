@@ -7,10 +7,11 @@
 
 public class Director extends Manager{
     
-    private static final int coeff = 3;
+    private int coeff = 3;
     
     public Director(String name, double salary, int numberOfSubordinates) {
         super(name, salary, numberOfSubordinates);
+        setCoeff(this.coeff);
     }
 
     public Director(String name, int ages, double salary, int numberOfSubordinates) {
@@ -24,17 +25,9 @@ public class Director extends Manager{
     public Director(String name, int ages, char sex, double salary, int numberOfSubordinates) {
         super(name, ages, sex, salary, numberOfSubordinates);
     }
-    
-    public int getCoeff(){
-        return coeff;
-    }
 
     public double getSalary(Month[] monthArray) {
         return (super.getSalary(monthArray));
     }
     
-    public double getPerks(){
-        double perks = 1 + (super.getNumberOfSubordinates() * getCoeff() / 100.0);
-        return perks;
-    }
 }

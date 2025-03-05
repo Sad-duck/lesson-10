@@ -7,10 +7,9 @@
 
 
 public class Manager extends Employee{
-    
-    public static int coeff = 1;
 
     private int numberOfSubordinates;
+    private int coeff = 1;
 
     public Manager(String name, double salary, int numberOfSubordinates) {
         super(name, salary);
@@ -36,8 +35,8 @@ public class Manager extends Employee{
         return numberOfSubordinates;
     }
     
-    public int getCoeff(){
-        return coeff;
+    public void setCoeff(int coeff) {
+        this.coeff = coeff;
     }
 
 
@@ -45,8 +44,8 @@ public class Manager extends Employee{
         return (super.getSalary(monthArray) * getPerks());
     }
     
-    public double getPerks(){
-        double perks = 1 + (numberOfSubordinates * getCoeff() / 100.0);
+    public double getPerks() {
+        double perks = 1 + (numberOfSubordinates * coeff / 100.0);
         return perks;
     }
 }
