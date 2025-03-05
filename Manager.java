@@ -7,6 +7,8 @@
 
 
 public class Manager extends Employee{
+    
+    public static int coeff = 1;
 
     private int numberOfSubordinates;
 
@@ -33,9 +35,18 @@ public class Manager extends Employee{
     public int getNumberOfSubordinates() {
         return numberOfSubordinates;
     }
+    
+    public int getCoeff(){
+        return coeff;
+    }
 
 
     public double getSalary(Month[] monthArray) {
-        return (super.getSalary(monthArray) + super.getSalary(monthArray)*getNumberOfSubordinates() / 100);
+        return (super.getSalary(monthArray) * getPerks());
+    }
+    
+    public double getPerks(){
+        double perks = 1 + (numberOfSubordinates * getCoeff() / 100.0);
+        return perks;
     }
 }
